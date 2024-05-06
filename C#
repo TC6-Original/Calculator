@@ -4,12 +4,14 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("----------------------");
-        Console.WriteLine("TC6's Calculator:");
+        Console.WriteLine("-------------------------");
+        Console.WriteLine("TC6's Calculator - v0.1.1");
+		Console.WriteLine("-------------------------");
         Console.WriteLine("1. Addition");
         Console.WriteLine("2. Subtraction");
         Console.WriteLine("3. Multiplication");
-        Console.WriteLine("-----------------------");
+		Console.WriteLine("4. Division");
+        Console.WriteLine("-------------------------");
 
         Console.Write("Enter your choice: ");
         int choice;
@@ -22,10 +24,10 @@ public class Program
         }
         catch (FormatException)
         {
-            Console.WriteLine("Invalid input! You cannot input: '" + input + "' as that is not a Integer!");
+            Console.WriteLine("Error: Invalid input! You cannot input: '" + input + "' as that is not a Integer!");
             return;
         }
-
+		
         Console.Write("Enter the first number: ");
         double num1;
 		string input1 = "";
@@ -37,13 +39,13 @@ public class Program
         }
         catch (FormatException)
         {
-            Console.WriteLine("Invalid input! You cannot input: '" + input1 + "' as that is not a Integer!");
+            Console.WriteLine("Error: Invalid input! You cannot input: '" + input1 + "' as that is not a Integer!");
             return;
         }
 
         double result = 0;
 
-        if (choice == 1 || choice == 2 || choice == 3)
+        if (choice == 1 || choice == 2 || choice == 3 || choice == 4)
         {
             Console.Write("Enter the second number: ");
             double num2;
@@ -56,7 +58,7 @@ public class Program
             }
             catch (FormatException)
             {
-                Console.WriteLine("Invalid input! You cannot input: '" + input2 + "' as that is not a Integer!");;
+                Console.WriteLine("Error: Invalid input! You cannot input: '" + input2 + "' as that is not a Integer!");;
                 return;
             }
 
@@ -75,15 +77,20 @@ public class Program
                 result = num1 * num2;
                 Console.WriteLine("Multiplication: " + num1 + " x " + num2 + " = " + result + ".");
             }
-            Console.WriteLine("----------------------");
+			else if (choice == 4)
+            {
+                result = num1 / num2;
+                Console.WriteLine("Division: " + num1 + " ÷ " + num2 + " = " + result + ".");
+            }
+            Console.WriteLine("-------------------------");
         }
         else
         {
-            Console.WriteLine("Invalid input! Please pick a number listed below:");
+            Console.WriteLine("Error: Invalid input! Please pick a number listed below:");
             Console.WriteLine("1. Addition");
             Console.WriteLine("2. Subtraction");
             Console.WriteLine("3. Multiplication");
-            Console.WriteLine("----------------------");
+            Console.WriteLine("-------------------------");
         }
     }
 }
